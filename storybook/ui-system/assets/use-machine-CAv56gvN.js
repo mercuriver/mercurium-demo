@@ -1,0 +1,1 @@
+import{r as t}from"./iframe-CIISAoEK.js";import{i as a}from"./index-J-6yexAb.js";function p(s){const e=t.useRef(null);e.current||(e.current=a(s));const[c,n]=t.useState(e.current.state);t.useEffect(()=>{const i=e.current.subscribe(o=>{n(o)});return()=>{i()}},[]);const u=t.useCallback(r=>{e.current?.send(r)},[]);return[c,u]}export{p as u};

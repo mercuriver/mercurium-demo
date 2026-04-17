@@ -1,1 +1,0 @@
-import{r as t}from"./iframe-CIISAoEK.js";function E(a={}){const{disabled:o=!1,onMouseEnter:u,onMouseLeave:r,onMouseDown:l,onMouseUp:M}=a,[d,n]=t.useState(!1),[c,s]=t.useState(!1);return{state:{isHovered:d,isActive:c},handlers:{onMouseEnter:e=>{o||n(!0),u?.(e)},onMouseLeave:e=>{n(!1),s(!1),r?.(e)},onMouseDown:e=>{o||s(!0),l?.(e)},onMouseUp:e=>{s(!1),M?.(e)}}}}export{E as u};

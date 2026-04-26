@@ -1,0 +1,1 @@
+import{r as u}from"./iframe-Dr7tdnDG.js";function o(...r){const t=u.useRef(r);return t.current=r,u.useCallback(n=>{for(const e of t.current)e!=null&&(typeof e=="function"?e(n):e.current=n)},[])}export{o as u};

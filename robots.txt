@@ -1,0 +1,13 @@
+# robots.txt for Datum Hog
+
+# AdSense crawler must reach every page (including /app) to assess ad context.
+# Declare it before the general rule so the broad Disallow does not block it.
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: *
+Allow: /
+# /app is an empty editor canvas with no crawlable content — low SEO value.
+Disallow: /app
+
+Sitemap: https://datumhog.com/sitemap.xml

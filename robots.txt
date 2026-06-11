@@ -7,7 +7,7 @@ Allow: /
 
 User-agent: *
 Allow: /
-# /app is an empty editor canvas with no crawlable content — low SEO value.
+# /app is the interactive editor application — excluded from search indexing.
 Disallow: /app
 
 Sitemap: https://datumhog.com/sitemap.xml

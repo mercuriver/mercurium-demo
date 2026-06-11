@@ -19,11 +19,7 @@
          (src/config/site.ts). -->
     <link rel="canonical" href="https://datumhog.com/" />
 
-    <!--
-      Baseline static SEO meta (English). The SPA renders one HTML shell, so
-      these are the crawl-time defaults. Per-locale dynamic meta is tracked
-      separately (ST-26).
-    -->
+    <!-- Baseline static SEO meta (English) — crawl-time defaults for the SPA shell. -->
     <meta
       name="description"
       content="Datum Hog is a free, local-first chart builder. Paste your data, pick a chart type, and download a publication-ready image — no code and no account required."
@@ -47,11 +43,7 @@
     />
     <meta name="twitter:image" content="https://datumhog.com/og-image.png" />
 
-    <!--
-      Structured data. WebApplication so search engines can surface Datum Hog as
-      a tool (free, browser-based). offers/price 0 marks it free. Host matches
-      SITE_ORIGIN (src/config/site.ts) — update both on the domain move.
-    -->
+    <!-- Structured data (WebApplication). Host mirrors SITE_ORIGIN (src/config/site.ts). -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -70,33 +62,19 @@
       }
     </script>
 
-    <!--
-      Google AdSense site-ownership / review snippet. Loaded statically (not
-      consent-gated) because AdSense's crawler must see it on every page to
-      verify ownership and assess the site for review. This only registers the
-      publisher account; actual ad units (<ins class="adsbygoogle">) are added
-      to the editor surface separately, after review approval.
-      TODO (post-approval): gate ad personalization behind cookie consent (CMP)
-      the same way GA4 / Clarity are — see src/analytics/load-analytics.ts.
-    -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9431872905077219"
-      crossorigin="anonymous"
-    ></script>
+    <!-- AdSense ownership verification. Meta tag on purpose (verification only,
+         never serves ads) — rationale in docs/deployment/spec/ad-integration.md. -->
+    <meta name="google-adsense-account" content="ca-pub-9431872905077219" />
 
-    <!--
-      Analytics (GA4 + Microsoft Clarity) are NOT loaded here. They are injected
-      at runtime only after the user accepts the cookie banner — see
-      src/analytics/load-analytics.ts and src/context/consent-context.tsx.
-      Loading them statically here would set tracking cookies before consent.
-    -->
-    <script type="module" crossorigin src="/mercurium-demo/assets/index-DBR6PbPr.js"></script>
+    <!-- Analytics (GA4 / Clarity) load at runtime after cookie consent —
+         see src/analytics/load-analytics.ts. Static loading would set
+         tracking cookies before consent. -->
+    <script type="module" crossorigin src="/mercurium-demo/assets/index-DbXnbmyL.js"></script>
     <link rel="modulepreload" crossorigin href="/mercurium-demo/assets/vendor-react-DcsKhtWL.js">
     <link rel="modulepreload" crossorigin href="/mercurium-demo/assets/vendor-d3-VQWL-TaJ.js">
-    <link rel="modulepreload" crossorigin href="/mercurium-demo/assets/chart-obnvzneC.js">
+    <link rel="modulepreload" crossorigin href="/mercurium-demo/assets/chart-meo-D6RO.js">
     <link rel="modulepreload" crossorigin href="/mercurium-demo/assets/vendor-sentry-CALquetK.js">
-    <link rel="stylesheet" crossorigin href="/mercurium-demo/assets/index-P0NYfQuG.css">
+    <link rel="stylesheet" crossorigin href="/mercurium-demo/assets/index-Cep68PQ7.css">
   </head>
   <body>
     <div id="root"></div>

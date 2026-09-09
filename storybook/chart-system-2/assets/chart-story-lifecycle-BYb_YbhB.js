@@ -1,0 +1,1 @@
+const c=(e,n)=>{let t=!1;const r=o=>{t||(t=!0,o.disconnect(),n())},s=new MutationObserver((o,i)=>{e.isConnected||r(i)});return s.observe(e.ownerDocument.body,{childList:!0,subtree:!0}),()=>r(s)};export{c as o};

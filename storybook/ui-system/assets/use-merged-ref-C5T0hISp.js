@@ -1,0 +1,1 @@
+import{r as o}from"./iframe-B352m8Ic.js";const u=(...r)=>{const t=o.useRef(r);return t.current=r,o.useCallback(n=>{for(const e of t.current)e!=null&&(typeof e=="function"?e(n):e.current=n)},[])};export{u};

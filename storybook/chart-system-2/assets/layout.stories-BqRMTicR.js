@@ -1,0 +1,44 @@
+import{a as c,d as I,e as P,r as _,f as m}from"./chart-BUQmp9vc.js";import{c as S}from"./chart-story-inspector-CDhlPLCD.js";import{o as w}from"./chart-story-lifecycle-BYb_YbhB.js";const H={data:[{date:"2026-01-01",orders:32,revenue:120},{date:"2026-02-01",orders:45,revenue:180},{date:"2026-03-01",orders:38,revenue:160}],view:{options:{legend:{position:"top",size:48,visible:!0},margin:16,navigator:{enabled:!0,position:"bottom",size:52},padding:8,title:{position:"top",size:72,text:"Revenue and orders"},xAxis:{scale:"time",ticks:{count:6,strategy:"count"},title:"Date"},yAxis:{labels:{valuePrefix:"$"},scale:"linear",ticks:{count:5},title:"Revenue"}},paradigm:"cartesian",series:[{encoding:{x:"date",y:"revenue"},id:"revenue",name:"Revenue"},{encoding:{x:"date",y:"orders"},id:"orders",name:"Orders",type:"bar"}]}},z={data:[{category:"Desktop",share:52},{category:"Mobile",share:38},{category:"Tablet",share:10}],view:{options:{legend:{position:"right",visible:!0},margin:16,padding:8,title:{text:"Traffic by device"}},paradigm:"polar",series:{encoding:{label:"category",value:"share"},id:"device-share",name:"Device share"}}},r={DEBUG:"Debug",FRAME:"Frame"},f=Object.values(c),N={debugLayoutBorder:!1,debugLayoutBounds:!1,debugLayoutColors:!1,debugLayoutLabels:!1,legendPosition:c.RIGHT,margin:16,navigatorPosition:c.BOTTOM,padding:16,titlePosition:c.TOP},B={margin:{control:{max:64,min:0,step:4,type:"range"},table:{category:r.FRAME}},padding:{control:{max:64,min:0,step:4,type:"range"},table:{category:r.FRAME}},titlePosition:{control:"select",name:"title.position",options:f,table:{category:r.FRAME}},legendPosition:{control:"select",name:"legend.position",options:f,table:{category:r.FRAME}},navigatorPosition:{control:"select",name:"navigator.position",options:f,table:{category:r.FRAME}},debugLayoutBorder:{control:"boolean",description:"각 layout 영역의 경계 표시",name:"debug.layout.border",table:{category:r.DEBUG}},debugLayoutBounds:{control:"boolean",description:"영역 라벨에 좌표와 크기 표시",name:"debug.layout.bounds",table:{category:r.DEBUG}},debugLayoutColors:{control:"boolean",description:"layout 영역별 배경색 표시",name:"debug.layout.color",table:{category:r.DEBUG}},debugLayoutLabels:{control:"boolean",description:"layout 영역 이름 표시",name:"debug.layout.labels",table:{category:r.DEBUG}}},D=t=>t===c.LEFT||t===c.RIGHT,G=({debugLayoutBorder:t,debugLayoutBounds:e,debugLayoutColors:o,debugLayoutLabels:a})=>({border:t,bounds:e,color:o,labels:a}),T=(t,e,o)=>D(t)?o:e,F=(t,{navigatorPosition:e})=>({...t,position:e,size:T(e,m.NAVIGATOR_HORIZONTAL,m.NAVIGATOR_VERTICAL)}),A=(t,{legendPosition:e})=>({...t,position:e,size:T(e,m.LEGEND_HORIZONTAL,m.LEGEND_VERTICAL)}),O=({data:t,view:e},o)=>{const{margin:a,padding:s,titlePosition:n}=o,i={layout:G(o)};switch(e.paradigm){case"cartesian":return{data:t,debug:i,view:{...e,options:{...e.options,margin:a,padding:s,title:{...e.options.title,position:n}}}};case"polar":return e.type==="radar"?{data:t,debug:i,view:{...e,options:{...e.options,margin:a,padding:s,title:{...e.options.title,position:n}}}}:{data:t,debug:i,view:{...e,options:{...e.options,margin:a,padding:s,title:{...e.options.title,position:n}}}}}},U=t=>{const e=H;return O({...e,view:{...e.view,options:{...e.view.options,legend:A(e.view.options.legend,t),navigator:F(e.view.options.navigator,t)}}},t)},M=t=>{const e=z;return O({...e,view:{...e.view,options:{...e.view.options,legend:A(e.view.options.legend,t)}}},t)},C=(t,e,o)=>{const a=_({height:e,options:t.view.options,width:o});return JSON.stringify({frame:a.frame.bounds,graph:a.graph.bounds,viewport:a.viewport.bounds},null,2)},R=({height:t,width:e},o)=>{const a=document.createElement("section"),s=document.createElement("div"),n=document.createElement("button"),i=document.createElement("code"),l=document.createElement("div"),v={height:Math.max(160,t-100),width:Math.max(280,e-200)};let u=!1;Object.assign(a.style,{display:"grid",gap:"16px",minWidth:"0"}),Object.assign(s.style,{alignItems:"center",display:"flex",gap:"12px"}),n.type="button",n.textContent="Resize container",n.setAttribute(I.ARIA_LABEL,"Toggle chart container size"),Object.assign(n.style,{background:"#ffffff",border:"1px solid #94a3b8",borderRadius:"4px",color:"#0f172a",cursor:"pointer",fontSize:"12px",fontWeight:"700",padding:"6px 10px"}),i.textContent=`${e} × ${t}px`,Object.assign(i.style,{color:"#596780",fontSize:"12px"}),Object.assign(l.style,{background:"#ffffff",border:"1px solid #94a3b8",height:`${t}px`,maxWidth:`${e}px`,position:"relative",width:`${e}px`});const E=new P(l,o);w(l,()=>E.destroy()),l.style.width="100%";const p=document.createElement("pre");p.textContent=C(o,t,e),Object.assign(p.style,{background:"#0f172a",borderRadius:"6px",color:"#e2e8f0",fontSize:"12px",lineHeight:"1.5",margin:"0",maxWidth:`${e}px`,overflow:"auto",padding:"12px 14px"}),n.addEventListener("click",()=>{u=!u;const h=u?v.height:t,x=u?v.width:e;l.style.height=`${h}px`,l.style.maxWidth=`${x}px`,i.textContent=`${x} × ${h}px`,p.textContent=C(o,h,x)});const b=document.createElement("details"),L=document.createElement("summary");return b.className="mer-story-inspector",L.className="mer-story-inspector__summary",L.textContent="Layout bounds at configured size",b.append(L,p),s.append(n,i),a.append(s,l,b,S(o)),a},k={title:"Features/Layout",args:{...N,height:420,width:800},argTypes:{...B,height:{control:{max:720,min:220,step:20,type:"range"},name:"container.height",table:{category:"Container"}},width:{control:{max:1080,min:280,step:20,type:"range"},name:"container.width",table:{category:"Container"}}},parameters:{controls:{sort:"none"}}},d={name:"Cartesian frame",parameters:{controls:{include:["container.height","container.width","margin","padding","title.position","legend.position","navigator.position","debug.layout.border","debug.layout.bounds","debug.layout.color","debug.layout.labels"]},storyHeader:{description:"Cartesian에서 title, legend, navigator와 여백이 graph·plot 영역을 어떻게 변화시키는지 확인합니다.",eyebrow:"Cartesian layout",title:"Cartesian 프레임 영역"}},render:t=>R(t,U(t))},g={name:"Polar frame",parameters:{controls:{include:["container.height","container.width","margin","padding","title.position","legend.position","debug.layout.border","debug.layout.bounds","debug.layout.color","debug.layout.labels"]},storyHeader:{description:"Polar에서 title과 legend를 배치하고 navigator가 없는 graph·plot 영역을 확인합니다.",eyebrow:"Polar layout",title:"Polar 프레임 영역"}},render:t=>R(t,M(t))},y={...d,name:"Frame regions",args:{debugLayoutBorder:!0,debugLayoutBounds:!0,debugLayoutColors:!0,debugLayoutLabels:!0},parameters:{...d.parameters,storyHeader:{eyebrow:"Layout · Regions",title:"배치 영역과 여백",description:"완성된 배치에 graph·plot·title·legend·navigator 영역을 겹쳐 확인합니다. Controls에서 경계·좌표·색상을 개별적으로 변경할 수 있습니다."}}};d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+  name: 'Cartesian frame',
+  parameters: {
+    controls: {
+      include: ['container.height', 'container.width', 'margin', 'padding', 'title.position', 'legend.position', 'navigator.position', 'debug.layout.border', 'debug.layout.bounds', 'debug.layout.color', 'debug.layout.labels']
+    },
+    storyHeader: {
+      description: 'Cartesian에서 title, legend, navigator와 여백이 graph·plot 영역을 어떻게 변화시키는지 확인합니다.',
+      eyebrow: 'Cartesian layout',
+      title: 'Cartesian 프레임 영역'
+    } satisfies StoryHeaderParameters
+  },
+  render: args => createLayoutStoryContent(args, createCartesianLayoutInitialization(args))
+}`,...d.parameters?.docs?.source}}};g.parameters={...g.parameters,docs:{...g.parameters?.docs,source:{originalSource:`{
+  name: 'Polar frame',
+  parameters: {
+    controls: {
+      include: ['container.height', 'container.width', 'margin', 'padding', 'title.position', 'legend.position', 'debug.layout.border', 'debug.layout.bounds', 'debug.layout.color', 'debug.layout.labels']
+    },
+    storyHeader: {
+      description: 'Polar에서 title과 legend를 배치하고 navigator가 없는 graph·plot 영역을 확인합니다.',
+      eyebrow: 'Polar layout',
+      title: 'Polar 프레임 영역'
+    } satisfies StoryHeaderParameters
+  },
+  render: args => createLayoutStoryContent(args, createPolarLayoutInitialization(args))
+}`,...g.parameters?.docs?.source}}};y.parameters={...y.parameters,docs:{...y.parameters?.docs,source:{originalSource:`{
+  ...Cartesian,
+  name: 'Frame regions',
+  args: {
+    debugLayoutBorder: true,
+    debugLayoutBounds: true,
+    debugLayoutColors: true,
+    debugLayoutLabels: true
+  },
+  parameters: {
+    ...Cartesian.parameters,
+    storyHeader: {
+      eyebrow: 'Layout · Regions',
+      title: '배치 영역과 여백',
+      description: '완성된 배치에 graph·plot·title·legend·navigator 영역을 겹쳐 확인합니다. Controls에서 경계·좌표·색상을 개별적으로 변경할 수 있습니다.'
+    } satisfies StoryHeaderParameters
+  }
+}`,...y.parameters?.docs?.source}}};const W=["Cartesian","Polar","LayoutRegions"];export{d as Cartesian,y as LayoutRegions,g as Polar,W as __namedExportsOrder,k as default};
